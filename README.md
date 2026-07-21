@@ -28,6 +28,43 @@ Business Understanding
 Insight Generation
 Files
 Customer_Churn_Analysis_BCG.ipynb
+
+# Customer Churn Prediction & Feature Engineering
+
+## 📌 Project Overview
+This project focuses on predicting customer churn for an energy provider by analyzing historical consumption, pricing data, and customer tenure. Using Python and **scikit-learn**, I performed data cleaning, engineered predictive features, and trained a **Random Forest Classifier** to identify customers at risk of leaving.
+
+The goal of this project is to demonstrate an end-to-end Machine Learning pipeline—from raw data preprocessing to baseline model evaluation—that delivers actionable business insights.
+
+---
+
+## 🛠️ Key Steps & Methodology
+
+### 1. Data Loading & Preprocessing
+* Loaded clean baseline datasets (`clean_data_after_eda.csv` and `price_data.csv`).
+* Converted date columns (`date_activ`, `date_end`, `date_modif_prod`, `date_renewal`, `price_date`) into datetime formats.
+* Handled missing values by filling numerical features with medians and baseline defaults.
+
+### 2. Feature Engineering
+Created new domain-specific features to capture customer behavior and price sensitivity:
+* **Off-Peak Price Differences:** Calculated variations between December and January off-peak energy and power prices (`offpeak_diff_dec_january_energy`, `offpeak_diff_dec_january_power`).
+* **Tenure Metrics:** Engineered total customer tenure in months (`tenure_months`) and time elapsed since the last product modification (`months_since_modification`).
+* **Categorical Encoding:** One-hot encoded categorical variables like sales channels (`channel_sales`) and contract origin (`origin_up`).
+
+### 3. Model Building & Evaluation
+* Split data into **80% training** and **20% testing** sets using stratified sampling to maintain target balance.
+* Trained a **Random Forest Classifier** (`n_estimators=100`, `random_state=42`) to baseline churn classification.
+
+---
+
+## 🧰 Tech Stack & Libraries
+* **Language:** Python 3.x
+* **Data Manipulation:** `pandas`, `numpy`
+* **Machine Learning:** `scikit-learn` (RandomForestClassifier, train_test_split)
+
+---
+
+
 README.md
 Author
 
